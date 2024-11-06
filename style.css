@@ -8,7 +8,7 @@
 body {
     overflow-y: disable;
     width: 100%;
-    min-height:97vh; /* Ensure the body height is always at least the height of the viewport */
+    min-height:97vh; 
     background-image: url('https://i.pinimg.com/originals/4f/dc/a2/4fdca2986a1e23bae67fa9220aba661f.jpg');
     background-size: cover; /* Ensure the background image covers the entire viewport */
     background-repeat: no-repeat;
@@ -288,8 +288,6 @@ button {
         height: 2.5rem; 
     }
 }
-
-
 /* Pagination Container */
 #pagination {
     display: flex;
@@ -298,7 +296,6 @@ button {
     margin-top: 20px;
   }
   
-  /* Pagination Buttons */
   #pagination button {
     background-color: #007bff;
     color: white;
@@ -310,20 +307,16 @@ button {
     border-radius: 5px;
     transition: background-color 0.3s ease;
   }
-  
-  /* Hover Effect for Pagination Buttons */
-  #pagination button:hover {
+    #pagination button:hover {
     background-color: #0056b3;
   }
   
-  /* Disabled Button Styling */
   #pagination button:disabled {
     background-color: #d6d6d6;
     cursor: not-allowed;
     color: #b0b0b0;
   }
   
-  /* Focus Effect for Pagination Buttons */
   #pagination button:focus {
     outline: none;
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);

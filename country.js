@@ -1,10 +1,7 @@
 // Function to display country details and add the Like heart icon
 function displayCountryDetails(country) {
   const countryDetailsContainer = document.querySelector(".country-details"); // Corrected line
-  
-  // Clear existing details
-  countryDetailsContainer.innerHTML = "";
-
+    countryDetailsContainer.innerHTML = "";
   const countryName = document.createElement("h2");
   countryName.textContent = country.name.common;
 
@@ -21,53 +18,38 @@ function displayCountryDetails(country) {
 
   const capital = document.createElement("p");
   capital.textContent = `Capital: ${country.capital ? country.capital[0] : "N/A"}`;
-
-  // Top Level Domain (TLD)
   const tld = document.createElement("p");
   tld.textContent = `Top Level Domain: ${country.tld ? country.tld.join(", ") : "N/A"}`;
-
-  // Area
   const area = document.createElement("p");
   area.textContent = `Area: ${country.area ? country.area.toLocaleString() + " km²" : "N/A"}`;
-
-  // Languages
   const languages = document.createElement("p");
   const languageNames = country.languages ? Object.values(country.languages).join(", ") : "N/A";
   languages.textContent = `Languages: ${languageNames}`;
-
-  // Append elements to the container
   countryDetailsContainer.appendChild(flag);
   countryDetailsContainer.appendChild(countryName);
   countryDetailsContainer.appendChild(region);
   countryDetailsContainer.appendChild(population);
   countryDetailsContainer.appendChild(capital);
-  countryDetailsContainer.appendChild(tld); // Appending TLD
-  countryDetailsContainer.appendChild(area); // Appending Area
-  countryDetailsContainer.appendChild(languages); // Appending Languages
-
-  // Dynamically create the heart icon (Like functionality)
+  countryDetailsContainer.appendChild(tld);
+  countryDetailsContainer.appendChild(area); 
+  countryDetailsContainer.appendChild(languages); 
   const likeIcon = document.createElement("i");
-  likeIcon.classList.add("fa-solid", "fa-heart"); // Add FontAwesome heart icon classes
-  likeIcon.style.fontSize = "30px"; // Optional: Set the size of the icon
-  likeIcon.style.cursor = "pointer"; // Change the cursor to pointer when hovering over the icon
-
+  likeIcon.classList.add("fa-solid", "fa-heart"); 
+  likeIcon.style.fontSize = "30px"; 
+  likeIcon.style.cursor = "pointer"; 
   // Add the like icon after the Languages section
   countryDetailsContainer.appendChild(likeIcon);
 
   // Add event listener for the heart icon
   likeIcon.addEventListener("click", () => {
-    console.log("Heart icon clicked!");  // Debugging
+    console.log("Heart icon clicked!");  
     // Toggle the 'liked' class to change the color to red when clicked
     likeIcon.classList.toggle("liked");
-    
-    // Add the country to favorites
-    AddToFavorites(country);
+        AddToFavorites(country);
   });
 }
-
-// Event listener for the back button
 document.getElementById("back-button").addEventListener("click", () => {
-  window.history.back(); // Go back to the previous page
+  window.history.back();
 });
 
 // Retrieve country data on page load
@@ -84,10 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Function to add the country to the favorites (localStorage)
 function AddToFavorites(country) {
-  // Retrieve existing liked countries or initialize an empty array
   const likedCountries = JSON.parse(localStorage.getItem("likedCountries")) || [];
-
-  // Check if the user has reached the limit of 5 favorites
   if (likedCountries.length >= 5) {
     alert("You can only favorite up to 5 countries. Redirecting to favorites page.");
     // window.location.href = "Like.html"; 
@@ -109,5 +88,4 @@ function AddToFavorites(country) {
 
   alert(`${country.name.common} has been added to your favorites!`);
   // window.location.href = "Like.html";
-   // Navigate to the favorites page
 }

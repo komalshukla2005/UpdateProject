@@ -4,7 +4,7 @@ const regionFilter = document.getElementById("region-filter");
 const languageFilter = document.getElementById("language-filter");
 const prevButton = document.getElementById("prev");
 const nextButton = document.getElementById("next");
-const favoriteButton = document.getElementsByClassName("Favorite")[0]; // Accessing the first button with the class "Favorite"
+const favoriteButton = document.getElementsByClassName("Favorite")[0]; 
 
 let countries = [];
 let filteredCountries = [];
@@ -38,30 +38,23 @@ function displayCountries() {
             <img src="${country.flags.png}" alt="${country.name.common} flag" />
             <h2>${country.name.common}</h2>
         `;
-
-        // Add event listener to the country card to navigate to details page
         countryCard.addEventListener("click", () => {
             viewCountryDetails(country.name.common);
         });
 
         countryList.appendChild(countryCard);
     });
-
-    // Update pagination buttons visibility
     updatePaginationButtons();
 }
-
 // Update pagination buttons (Next/Previous)
 function updatePaginationButtons() {
     const totalPages = Math.ceil(filteredCountries.length / countriesPerPage);
-
     // Disable "Previous" button if on the first page
     if (currentPage === 1) {
         prevButton.disabled = true;
     } else {
         prevButton.disabled = false;
     }
-
     // Disable "Next" button if on the last page
     if (currentPage === totalPages) {
         nextButton.disabled = true;
@@ -69,7 +62,6 @@ function updatePaginationButtons() {
         nextButton.disabled = false;
     }
 }
-
 // Navigate to next page
 function nextPage() {
     const totalPages = Math.ceil(filteredCountries.length / countriesPerPage);
@@ -78,7 +70,6 @@ function nextPage() {
         displayCountries();
     }
 }
-
 // Navigate to previous page
 function previousPage() {
     if (currentPage > 1) {
@@ -86,7 +77,6 @@ function previousPage() {
         displayCountries();
     }
 }
-
 // Filter countries based on search, region, and language
 function filterCountries() {
     const searchValue = searchInput.value.toLowerCase();
@@ -96,29 +86,24 @@ function filterCountries() {
     filteredCountries = countries.filter(country => {
         const matchesSearch = country.name.common.toLowerCase().includes(searchValue);
         const matchesRegion = selectedRegion === "all" || country.region === selectedRegion;
-        
-        // Language filter logic
-        const matchesLanguage = selectedLanguage === "all" || country.languages && Object.values(country.languages).includes(selectedLanguage);
-        
+                const matchesLanguage = selectedLanguage === "all" || country.languages && Object.values(country.languages).includes(selectedLanguage);
+    
         return matchesSearch && matchesRegion && matchesLanguage;
     });
 
-    currentPage = 1; // Reset to first page
-    displayCountries(); // Display filtered countries
+    currentPage = 1; 
+    displayCountries();
 }
-
 // View country details
 function viewCountryDetails(countryName) {
     const country = countries.find(c => c.name.common === countryName);
     localStorage.setItem("selectedCountry", JSON.stringify(country)); 
     window.location.href = "country-details.html"; 
 }
-
 // Event listener for the "Favorite" button
 favoriteButton.addEventListener("click", () => {
     window.location.href = "Like.html"; // Navigate to the Like.html page
 });
-
 // Event listeners for the search, region, language filters, and pagination buttons
 searchInput.addEventListener("input", filterCountries);
 regionFilter.addEventListener("change", filterCountries);
