@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Country Explorer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="navbar">
+    <h1 class="navbar-title">Country Explorer</h1>
+    <div class="navbar-controls">
+      <input type="text" id="search" placeholder="Search for a country..." /> 
+           
+      <select id="region-filter">
+        <option value="all">Filter by Region</option>
+        <option value="Africa">Africa</option>
+        <option value="Americas">Americas</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+        <option value="Oceania">Oceania</option>
+      </select>
+      
+      <!-- New Language Filter -->
+      <select id="language-filter">
+        <option value="all">Filter by Language</option>
+        <option value="Arabic">Arabic</option>
+        <option value="Bengali">Bengali</option>
+        <option value="Chinese">Chinese</option>
+        <option value="English">English</option>
+        <option value="French">French</option>
+        <option value="German">German</option>
+        <option value="Hindi">Hindi</option>
+        <option value="Italian">Italian</option>
+        <option value="Japanese">Japanese</option>
+        <option value="Korean">Korean</option>
+        <option value="Portuguese">Portuguese</option>
+        <option value="Russian">Russian</option>
+        <option value="Spanish">Spanish</option>
+        <option value="Swahili">Swahili</option>
+        <option value="Turkish">Turkish</option>
+        <option value="Urdu">Urdu</option>
+        <option value="Vietnamese">Vietnamese</option>
+        <option value="Tamil">Tamil</option>
+        <option value="Telugu">Telugu</option>
+        <option value="Marathi">Marathi</option>
+        <option value="Punjabi">Punjabi</option>
+        <option value="Javanese">Javanese</option>
+        <option value="Malay">Malay</option>
+        <option value="Polish">Polish</option>
+        <option value="Dutch">Dutch</option>
+        <option value="Greek">Greek</option>
+        <option value="Swedish">Swedish</option>
+        <option value="Thai">Thai</option>
+        <option value="Hebrew">Hebrew</option>
+        <option value="Indonesian">Indonesian</option>
+        <option value="Hungarian">Hungarian</option>
+        <option value="Finnish">Finnish</option>
+        <option value="Czech">Czech</option>
+        <option value="Romanian">Romanian</option>
+        <option value="Danish">Danish</option>
+        <option value="Norwegian">Norwegian</option>
+        <option value="Bulgarian">Bulgarian</option>
+        <option value="Slovak">Slovak</option>
+        <option value="Ukrainian">Ukrainian</option>
+        <option value="Croatian">Croatian</option>
+        <option value="Serbian">Serbian</option>
+        <option value="Malayalam">Malayalam</option>
+        <option value="Nepali">Nepali</option>
+        <option value="Georgian">Georgian</option>
+        <option value="Kazakh">Kazakh</option>
+        <option value="Tamil">Tamil</option>
+        <option value="Sinhala">Sinhala</option>
+        <option value="Albanian">Albanian</option>
+      </select>
+      <button class="Favorite">Favorite Countries</button>
+    </div>
+  </header>
+  
+  <main id="country-list"></main>
+  
+  <div id="pagination">
+    <button id="prev" disabled>Previous</button>
+    <button id="next">Next</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
